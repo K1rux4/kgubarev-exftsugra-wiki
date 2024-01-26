@@ -1,0 +1,124 @@
+% Cadabra notebook version 1.2
+\documentclass[11pt]{article}
+\usepackage[textwidth=460pt, textheight=660pt]{geometry}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{amssymb}
+\usepackage[parfill]{parskip}
+\usepackage{breqn}
+\usepackage{tableaux}
+\def\specialcolon{\mathrel{\mathop{:}}\hspace{-.5em}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\begin{document}
+{\color[named]{Blue}\begin{verbatim}
+{m, n, k, l, p, q, r, s, t, u, v, m#, n#, k#}::Indices(name=gl4, parent=sl5fund, position=independent).
+{a,b,c,d,e,f,g,h,a#}::Indices(name=gl4flat, parent=sl5flat, position=independent).
+
+{m, n, k, l, p, q, r, s, t, u, v, m#, n#, k#}::Integer(1..4).
+{a,b,c,d,e,f,g,h,a#}::Integer(1..4).
+
+{i#, j#}::Indices(name=vector, position=independent).
+{i#, j#}::Integer(1..N).
+
+f_{i1 i2}^{i3}::TableauSymmetry(shape={1,1}, indices={0,1}).
+T_{m n k}::TableauSymmetry(shape={1,1,1}, indices={0,1,2}).
+A_{i1 i2 i3}::TableauSymmetry(shape={1,1,1}, indices={0,1,2}).
+\rho^{i1 i2 i3}::AntiSymmetric.
+S_{i1 i2}::Symmetric.
+
+\delta{#}::KroneckerDelta.
+\epsilon{#}::EpsilonTensor( delta = \delta ):
+\end{verbatim}}
+% Begin TeX comment
+Assigning list property Indices to $\{m,\; n,\; k,\; l,\; p,\; q,\; r,\; s,\; t,\; u,\; v,\; m\#,\; n\#,\; k\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning list property Indices to $\{a,\; b,\; c,\; d,\; e,\; f,\; g,\; h,\; a\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $m$, $n$, $k$, $l$, $p$, $q$, $r$, $s$, $t$, $u$, $v$, $m\#$, $n\#$, $k\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $a$, $b$, $c$, $d$, $e$, $f$, $g$, $h$, $a\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning list property Indices to $\{i\#,\; j\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $i\#$, $j\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${f}_{i1 i2}\,^{i3}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${T}_{m n k}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${A}_{i1 i2 i3}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property AntiSymmetric to ${\rho}^{i1 i2 i3}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Symmetric to ${S}_{i1 i2}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property KroneckerDelta to $\delta(\#)$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property EpsilonTensor to $\epsilon(\#)$.
+\\
+% End TeX comment
+{\color[named]{Blue}\begin{verbatim}
+rho2 := - 24 * A_{i2 i3 i4} S_{i5 i7} \rho^{i2 i7 j1} \rho^{i4 i5 j2} f_{j1 j2}^{i3}:
+@asym!(%){^{i2}, ^{i3}, ^{i4}, ^{i5}}:
+@distribute!!(%):
+@prodsort!!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+@distribute!!(%):
+@prodsort!!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%);
+\end{verbatim}}
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodsort: not applicable.
+% End TeX comment
+% Begin TeX comment
+@canonicalise: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_terms: not applicable.
+% End TeX comment
+% orig
+% 12 A_{i2 i3 i4} S_{i5 i7} \rho^{i2 i5 j1} \rho^{i3 i7 j2} f_{j1 j2}^{i4} + 6 A_{i2 i3 i4} S_{i5 i7} \rho^{i2 i3 j1} \rho^{i4 i5 j2} f_{j1 j2}^{i7}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+rho2\specialcolon{}= 12\, {A}_{i2 i3 i4} {S}_{i5 i7} {\rho}^{i2 i5 j1} {\rho}^{i3 i7 j2} {f}_{j1 j2}\,^{i4} + 6\, {A}_{i2 i3 i4} {S}_{i5 i7} {\rho}^{i2 i3 j1} {\rho}^{i4 i5 j2} {f}_{j1 j2}\,^{i7};
+\end{dmath*}
+\end{document}
