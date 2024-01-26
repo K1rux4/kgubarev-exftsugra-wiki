@@ -1,0 +1,561 @@
+% Cadabra notebook version 1.2
+\documentclass[11pt]{article}
+\usepackage[textwidth=460pt, textheight=660pt]{geometry}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{amssymb}
+\usepackage[parfill]{parskip}
+\usepackage{breqn}
+\usepackage{tableaux}
+\def\specialcolon{\mathrel{\mathop{:}}\hspace{-.5em}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\begin{document}
+{\color[named]{Blue}\begin{verbatim}
+{M,N,K,L,P,Q,R,S,T,U,V, M#}::Indices(name=sl5fund, position=independent).
+{A,B,C,D,E,F,G,H, A#}::Indices(name=sl5flat, position=independent).
+{\alpha,\beta,\gamma,\delta,\alpha#}::Indices(name=sl5rep10, position=independent).
+
+{M,N,K,L,P,Q,R,S,T,U,V, M#}::Integer(1..5).
+{A,B,C,D,E,F,G,H, A#}::Integer(1..5).
+{\alpha,\beta,\gamma,\delta,\alpha#}::Integer(1..10).
+
+{m, n, k, l, p, q, r, s, t, u, v, m#, n#, k#}::Indices(name=gl4, parent=sl5fund, position=independent).
+{a,b,c,d,e,f,g,h,a#}::Indices(name=gl4flat, parent=sl5flat, position=independent).
+
+{m, n, k, l, p, q, r, s, t, u, v, m#, n#, k#}::Integer(1..4).
+{a,b,c,d,e,f,g,h,a#}::Integer(1..4).
+
+{i#, j#}::Indices(name=vector, position=independent).
+{i#, j#}::Integer(1..N).
+
+T^{\alpha}_{M N}::TableauSymmetry(shape={1,1}, indices={1,2}).
+T^{\alpha}_{A B}::TableauSymmetry(shape={1,1}, indices={1,2}).
+F_{A B C}^{D}::TableauSymmetry(shape={1,1}, indices={0,1}).
+f_{i1 i2}^{i3}::TableauSymmetry(shape={1,1}, indices={0,1}).
+s_{i1 i2}^{i3}::TableauSymmetry(shape={2}, indices={0,1}).
+E^{m n k}_{A B C}::TableauSymmetry(shape={1,1,1}, indices={0,1,2}).
+\Omega^{m n k}::AntiSymmetric:
+\rho^{i1 i2 i3}::AntiSymmetric:
+
+\partial{#}::Derivative.
+\nabla{#}::Derivative.
+d{#}::PartialDerivative.
+\delta{#}::KroneckerDelta.
+\epsilon{#}::EpsilonTensor( delta = \delta ):
+h_{m n}::Metric.
+
+\partial{#}::WeightInherit(label=all, type=Additive):
+\nabla{#}::WeightInherit(label=all, type=Additive):
+d{#}::WeightInherit(label=all, type=Additive):
+
+{O_{M}^{N}, w_{m}, \rho^{i1 i2 i3}}::Weight(label=w, value=1):
+\end{verbatim}}
+% Begin TeX comment
+Assigning list property Indices to $\{M,\; N,\; K,\; L,\; P,\; Q,\; R,\; S,\; T,\; U,\; V,\; M\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning list property Indices to $\{A,\; B,\; C,\; D,\; E,\; F,\; G,\; H,\; A\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning list property Indices to $\{\alpha,\; \beta,\; \gamma,\; \delta,\; \alpha\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $M$, $N$, $K$, $L$, $P$, $Q$, $R$, $S$, $T$, $U$, $V$, $M\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $A$, $B$, $C$, $D$, $E$, $F$, $G$, $H$, $A\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $\alpha$, $\beta$, $\gamma$, $\delta$, $\alpha\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning list property Indices to $\{m,\; n,\; k,\; l,\; p,\; q,\; r,\; s,\; t,\; u,\; v,\; m\#,\; n\#,\; k\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning list property Indices to $\{a,\; b,\; c,\; d,\; e,\; f,\; g,\; h,\; a\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $m$, $n$, $k$, $l$, $p$, $q$, $r$, $s$, $t$, $u$, $v$, $m\#$, $n\#$, $k\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $a$, $b$, $c$, $d$, $e$, $f$, $g$, $h$, $a\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning list property Indices to $\{i\#,\; j\#\}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Integer to $i\#$, $j\#$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${T}^{\alpha}\,_{M N}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${T}^{\alpha}\,_{A B}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${F}_{A B C}\,^{D}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${f}_{i1 i2}\,^{i3}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${s}_{i1 i2}\,^{i3}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property TableauSymmetry to ${E}^{m n k}\,_{A B C}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property AntiSymmetric to ${\Omega}^{m n k}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property AntiSymmetric to ${\rho}^{i1 i2 i3}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Derivative to $\partial{\#}\, $.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Derivative to $\nabla{\#}\, $.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property PartialDerivative to $d{\#}\, $.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property KroneckerDelta to $\delta(\#)$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property EpsilonTensor to $\epsilon(\#)$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Metric to ${h}_{m n}$.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property WeightInherit to $\partial{\#}\, $.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property WeightInherit to $\nabla{\#}\, $.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property WeightInherit to $d{\#}\, $.
+\\
+% End TeX comment
+% Begin TeX comment
+Assigning property Weight to ${O}_{M}\,^{N}$, ${w}_{m}$, ${\rho}^{i1 i2 i3}$.
+\\
+% End TeX comment
+{\color[named]{Blue}\begin{verbatim}
+F := 1/2 T^{\alpha}_{K N} E_{A}^{K} E_{B}^{N} \partial_{\alpha}{E_{C}^{M}} E^{E}_{M}
+                           + 1/2 T^{\alpha}_{K N} E_{B}^{K} E_{C}^{N} \partial_{\alpha}{E_{A}^{M}} E^{E}_{M}
+                            - 1/2 E_{C}^{M} T^{\alpha}_{M N} \partial_{\alpha}{E_{B}^{N}} \delta_{A}^{E}
+                            - 1/4 E_{B}^{M} T^{\alpha}_{M N} \partial_{\alpha}{E_{A}^{N}} \delta_{C}^{E}
+                           + 1/4 E_{A}^{M} T^{\alpha}_{M N} \partial_{\alpha}{E_{B}^{N}} \delta_{C}^{E}
+                           + 1/2 E_{C}^{M} T^{\alpha}_{M N} \partial_{\alpha}{E_{A}^{N}} \delta_{B}^{E}
+                            - 1/2 T^{\alpha}_{K N} E_{A}^{K} E_{C}^{N} \partial_{\alpha}{E_{B}^{M}} E^{E}_{M}:
+@substitute!!(%)(
+E_{A}^{M} -> G^{M}_{A},
+E^{E}_{M} -> G_{M}^{E},
+);
+@substitute!!(%)(
+G^{M}_{A} -> E^{M}_{A} + E^{N}_{A} \Omega^{M}_{N},
+G_{M}^{A} -> E_{M}^{A} - \Omega^{N}_{M} E_{N}^{A},
+):
+@distribute!!(%):
+@split_index!!(%)(M, m, 5):
+@substitute!!(%)(
+T^{A??}_{m n} -> 0,
+T^{A??}_{5 5} -> 0,
+T^{A??}_{m 5} -> - T^{A??}_{5 m},
+T^{\alpha}_{5 m}\partial_{\alpha}{A??} -> \partial_{m}{A??},
+):
+@substitute!!(%)(
+\Omega^{5}_{m} -> - w_{m},
+\Omega^{5}_{5} -> 0,
+\Omega^{m}_{5} -> 0,
+\Omega^{m}_{n} -> 0,
+);
+@distribute!!(%):
+@prodrule!!(%):
+@distribute!!(%):
+@eliminate_kr!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_terms!!(%):
+@drop_weight!(%){w}{0};
+\end{verbatim}}
+% orig
+% 1/2 T^{\alpha}_{K N} G^{K}_{A} G^{N}_{B} \partial_{\alpha}{G^{M}_{C}} G_{M}^{E} + 1/2 T^{\alpha}_{K N} G^{K}_{B} G^{N}_{C} \partial_{\alpha}{G^{M}_{A}} G_{M}^{E} - 1/2 G^{M}_{C} T^{\alpha}_{M N} \partial_{\alpha}{G^{N}_{B}} \delta_{A}^{E} - 1/4 G^{M}_{B} T^{\alpha}_{M N} \partial_{\alpha}{G^{N}_{A}} \delta_{C}^{E} + 1/4 G^{M}_{A} T^{\alpha}_{M N} \partial_{\alpha}{G^{N}_{B}} \delta_{C}^{E} + 1/2 G^{M}_{C} T^{\alpha}_{M N} \partial_{\alpha}{G^{N}_{A}} \delta_{B}^{E} - 1/2 T^{\alpha}_{K N} G^{K}_{A} G^{N}_{C} \partial_{\alpha}{G^{M}_{B}} G_{M}^{E}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+F\specialcolon{}= \frac{1}{2}\, {T}^{\alpha}\,_{K N} {G}^{K}\,_{A} {G}^{N}\,_{B} {\partial}_{\alpha}{{G}^{M}\,_{C}}\,  {G}_{M}\,^{E} + \frac{1}{2}\, {T}^{\alpha}\,_{K N} {G}^{K}\,_{B} {G}^{N}\,_{C} {\partial}_{\alpha}{{G}^{M}\,_{A}}\,  {G}_{M}\,^{E} - \frac{1}{2}\, {G}^{M}\,_{C} {T}^{\alpha}\,_{M N} {\partial}_{\alpha}{{G}^{N}\,_{B}}\,  {\delta}_{A}\,^{E} - \frac{1}{4}\, {G}^{M}\,_{B} {T}^{\alpha}\,_{M N} {\partial}_{\alpha}{{G}^{N}\,_{A}}\,  {\delta}_{C}\,^{E} + \frac{1}{4}\, {G}^{M}\,_{A} {T}^{\alpha}\,_{M N} {\partial}_{\alpha}{{G}^{N}\,_{B}}\,  {\delta}_{C}\,^{E} + \frac{1}{2}\, {G}^{M}\,_{C} {T}^{\alpha}\,_{M N} {\partial}_{\alpha}{{G}^{N}\,_{A}}\,  {\delta}_{B}\,^{E} - \frac{1}{2}\, {T}^{\alpha}\,_{K N} {G}^{K}\,_{A} {G}^{N}\,_{C} {\partial}_{\alpha}{{G}^{M}\,_{B}}\,  {G}_{M}\,^{E};
+\end{dmath*}
+% orig
+%  - 1/2 \partial_{m}{E^{n}_{C}} E^{m}_{A} E^{5}_{B} E_{n}^{E} - 1/2 \partial_{m}{E^{5}_{C}} E^{m}_{A} E^{5}_{B} E_{5}^{E} + 1/2 \partial_{n}{E^{m}_{C}} E^{5}_{A} E^{n}_{B} E_{m}^{E} + 1/2 \partial_{m}{E^{5}_{C}} E^{5}_{A} E^{m}_{B} E_{5}^{E} - 1/2 \partial_{m}{E^{n}_{C}} E^{m}_{A} E^{5}_{B} w_{n} E_{5}^{E} + 1/2 \partial_{n}{E^{m}_{C}} E^{5}_{A} E^{n}_{B} w_{m} E_{5}^{E} - 1/2 \partial_{m}{(-E^{n}_{C} w_{n})} E^{m}_{A} E^{5}_{B} E_{5}^{E} + 1/2 \partial_{m}{(-E^{n}_{C} w_{n})} E^{5}_{A} E^{m}_{B} E_{5}^{E} + 1/2 \partial_{m}{E^{n}_{C}} E^{m}_{A} E^{k}_{B} w_{k} E_{n}^{E} + 1/2 \partial_{m}{E^{5}_{C}} E^{m}_{A} E^{n}_{B} w_{n} E_{5}^{E} + 1/2 \partial_{m}{E^{n}_{C}} E^{m}_{A} E^{k}_{B} w_{k} w_{n} E_{5}^{E} + 1/2 \partial_{m}{(-E^{k}_{C} w_{k})} E^{m}_{A} E^{n}_{B} w_{n} E_{5}^{E} - 1/2 \partial_{k}{E^{n}_{C}} E^{m}_{A} w_{m} E^{k}_{B} E_{n}^{E} - 1/2 \partial_{n}{E^{5}_{C}} E^{m}_{A} w_{m} E^{n}_{B} E_{5}^{E} - 1/2 \partial_{k}{E^{n}_{C}} E^{m}_{A} w_{m} E^{k}_{B} w_{n} E_{5}^{E} - 1/2 \partial_{n}{(-E^{k}_{C} w_{k})} E^{m}_{A} w_{m} E^{n}_{B} E_{5}^{E} - 1/2 \partial_{m}{E^{n}_{A}} E^{m}_{B} E^{5}_{C} E_{n}^{E} - 1/2 \partial_{m}{E^{5}_{A}} E^{m}_{B} E^{5}_{C} E_{5}^{E} + 1/2 \partial_{n}{E^{m}_{A}} E^{5}_{B} E^{n}_{C} E_{m}^{E} + 1/2 \partial_{m}{E^{5}_{A}} E^{5}_{B} E^{m}_{C} E_{5}^{E} - 1/2 \partial_{m}{E^{n}_{A}} E^{m}_{B} E^{5}_{C} w_{n} E_{5}^{E} + 1/2 \partial_{n}{E^{m}_{A}} E^{5}_{B} E^{n}_{C} w_{m} E_{5}^{E} - 1/2 \partial_{m}{(-E^{n}_{A} w_{n})} E^{m}_{B} E^{5}_{C} E_{5}^{E} + 1/2 \partial_{m}{(-E^{n}_{A} w_{n})} E^{5}_{B} E^{m}_{C} E_{5}^{E} + 1/2 \partial_{m}{E^{n}_{A}} E^{m}_{B} E^{k}_{C} w_{k} E_{n}^{E} + 1/2 \partial_{m}{E^{5}_{A}} E^{m}_{B} E^{n}_{C} w_{n} E_{5}^{E} + 1/2 \partial_{m}{E^{n}_{A}} E^{m}_{B} E^{k}_{C} w_{k} w_{n} E_{5}^{E} + 1/2 \partial_{m}{(-E^{k}_{A} w_{k})} E^{m}_{B} E^{n}_{C} w_{n} E_{5}^{E} - 1/2 \partial_{k}{E^{n}_{A}} E^{m}_{B} w_{m} E^{k}_{C} E_{n}^{E} - 1/2 \partial_{n}{E^{5}_{A}} E^{m}_{B} w_{m} E^{n}_{C} E_{5}^{E} - 1/2 \partial_{k}{E^{n}_{A}} E^{m}_{B} w_{m} E^{k}_{C} w_{n} E_{5}^{E} - 1/2 \partial_{n}{(-E^{k}_{A} w_{k})} E^{m}_{B} w_{m} E^{n}_{C} E_{5}^{E} + 1/2 E^{m}_{C} \partial_{m}{E^{5}_{B}} \delta_{A}^{E} - 1/2 E^{5}_{C} \partial_{m}{E^{m}_{B}} \delta_{A}^{E} + 1/2 E^{n}_{C} \partial_{n}{(-E^{m}_{B} w_{m})} \delta_{A}^{E} + 1/2 E^{m}_{C} w_{m} \partial_{n}{E^{n}_{B}} \delta_{A}^{E} + 1/4 E^{m}_{B} \partial_{m}{E^{5}_{A}} \delta_{C}^{E} - 1/4 E^{5}_{B} \partial_{m}{E^{m}_{A}} \delta_{C}^{E} + 1/4 E^{n}_{B} \partial_{n}{(-E^{m}_{A} w_{m})} \delta_{C}^{E} + 1/4 E^{m}_{B} w_{m} \partial_{n}{E^{n}_{A}} \delta_{C}^{E} - 1/4 E^{m}_{A} \partial_{m}{E^{5}_{B}} \delta_{C}^{E} + 1/4 E^{5}_{A} \partial_{m}{E^{m}_{B}} \delta_{C}^{E} - 1/4 E^{n}_{A} \partial_{n}{(-E^{m}_{B} w_{m})} \delta_{C}^{E} - 1/4 E^{m}_{A} w_{m} \partial_{n}{E^{n}_{B}} \delta_{C}^{E} - 1/2 E^{m}_{C} \partial_{m}{E^{5}_{A}} \delta_{B}^{E} + 1/2 E^{5}_{C} \partial_{m}{E^{m}_{A}} \delta_{B}^{E} - 1/2 E^{n}_{C} \partial_{n}{(-E^{m}_{A} w_{m})} \delta_{B}^{E} - 1/2 E^{m}_{C} w_{m} \partial_{n}{E^{n}_{A}} \delta_{B}^{E} + 1/2 \partial_{m}{E^{n}_{B}} E^{m}_{A} E^{5}_{C} E_{n}^{E} + 1/2 \partial_{m}{E^{5}_{B}} E^{m}_{A} E^{5}_{C} E_{5}^{E} - 1/2 \partial_{n}{E^{m}_{B}} E^{5}_{A} E^{n}_{C} E_{m}^{E} - 1/2 \partial_{m}{E^{5}_{B}} E^{5}_{A} E^{m}_{C} E_{5}^{E} + 1/2 \partial_{m}{E^{n}_{B}} E^{m}_{A} E^{5}_{C} w_{n} E_{5}^{E} - 1/2 \partial_{n}{E^{m}_{B}} E^{5}_{A} E^{n}_{C} w_{m} E_{5}^{E} + 1/2 \partial_{m}{(-E^{n}_{B} w_{n})} E^{m}_{A} E^{5}_{C} E_{5}^{E} - 1/2 \partial_{m}{(-E^{n}_{B} w_{n})} E^{5}_{A} E^{m}_{C} E_{5}^{E} - 1/2 \partial_{m}{E^{n}_{B}} E^{m}_{A} E^{k}_{C} w_{k} E_{n}^{E} - 1/2 \partial_{m}{E^{5}_{B}} E^{m}_{A} E^{n}_{C} w_{n} E_{5}^{E} - 1/2 \partial_{m}{E^{n}_{B}} E^{m}_{A} E^{k}_{C} w_{k} w_{n} E_{5}^{E} - 1/2 \partial_{m}{(-E^{k}_{B} w_{k})} E^{m}_{A} E^{n}_{C} w_{n} E_{5}^{E} + 1/2 \partial_{k}{E^{n}_{B}} E^{m}_{A} w_{m} E^{k}_{C} E_{n}^{E} + 1/2 \partial_{n}{E^{5}_{B}} E^{m}_{A} w_{m} E^{n}_{C} E_{5}^{E} + 1/2 \partial_{k}{E^{n}_{B}} E^{m}_{A} w_{m} E^{k}_{C} w_{n} E_{5}^{E} + 1/2 \partial_{n}{(-E^{k}_{B} w_{k})} E^{m}_{A} w_{m} E^{n}_{C} E_{5}^{E}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+F\specialcolon{}=  - \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{C}}\,  {E}^{m}\,_{A} {E}^{5}\,_{B} {E}_{n}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{C}}\,  {E}^{m}\,_{A} {E}^{5}\,_{B} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{n}{{E}^{m}\,_{C}}\,  {E}^{5}\,_{A} {E}^{n}\,_{B} {E}_{m}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{C}}\,  {E}^{5}\,_{A} {E}^{m}\,_{B} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{C}}\,  {E}^{m}\,_{A} {E}^{5}\,_{B} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{n}{{E}^{m}\,_{C}}\,  {E}^{5}\,_{A} {E}^{n}\,_{B} {w}_{m} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{(-{E}^{n}\,_{C} {w}_{n})}\,  {E}^{m}\,_{A} {E}^{5}\,_{B} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{(-{E}^{n}\,_{C} {w}_{n})}\,  {E}^{5}\,_{A} {E}^{m}\,_{B} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{C}}\,  {E}^{m}\,_{A} {E}^{k}\,_{B} {w}_{k} {E}_{n}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{C}}\,  {E}^{m}\,_{A} {E}^{n}\,_{B} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{C}}\,  {E}^{m}\,_{A} {E}^{k}\,_{B} {w}_{k} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{(-{E}^{k}\,_{C} {w}_{k})}\,  {E}^{m}\,_{A} {E}^{n}\,_{B} {w}_{n} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{k}{{E}^{n}\,_{C}}\,  {E}^{m}\,_{A} {w}_{m} {E}^{k}\,_{B} {E}_{n}\,^{E} - \frac{1}{2}\, {\partial}_{n}{{E}^{5}\,_{C}}\,  {E}^{m}\,_{A} {w}_{m} {E}^{n}\,_{B} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{k}{{E}^{n}\,_{C}}\,  {E}^{m}\,_{A} {w}_{m} {E}^{k}\,_{B} {w}_{n} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{n}{(-{E}^{k}\,_{C} {w}_{k})}\,  {E}^{m}\,_{A} {w}_{m} {E}^{n}\,_{B} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{A}}\,  {E}^{m}\,_{B} {E}^{5}\,_{C} {E}_{n}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{A}}\,  {E}^{m}\,_{B} {E}^{5}\,_{C} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{n}{{E}^{m}\,_{A}}\,  {E}^{5}\,_{B} {E}^{n}\,_{C} {E}_{m}\,^{E}%
+ + \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{A}}\,  {E}^{5}\,_{B} {E}^{m}\,_{C} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{A}}\,  {E}^{m}\,_{B} {E}^{5}\,_{C} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{n}{{E}^{m}\,_{A}}\,  {E}^{5}\,_{B} {E}^{n}\,_{C} {w}_{m} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{(-{E}^{n}\,_{A} {w}_{n})}\,  {E}^{m}\,_{B} {E}^{5}\,_{C} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{(-{E}^{n}\,_{A} {w}_{n})}\,  {E}^{5}\,_{B} {E}^{m}\,_{C} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{A}}\,  {E}^{m}\,_{B} {E}^{k}\,_{C} {w}_{k} {E}_{n}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{A}}\,  {E}^{m}\,_{B} {E}^{n}\,_{C} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{A}}\,  {E}^{m}\,_{B} {E}^{k}\,_{C} {w}_{k} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{(-{E}^{k}\,_{A} {w}_{k})}\,  {E}^{m}\,_{B} {E}^{n}\,_{C} {w}_{n} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{k}{{E}^{n}\,_{A}}\,  {E}^{m}\,_{B} {w}_{m} {E}^{k}\,_{C} {E}_{n}\,^{E} - \frac{1}{2}\, {\partial}_{n}{{E}^{5}\,_{A}}\,  {E}^{m}\,_{B} {w}_{m} {E}^{n}\,_{C} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{k}{{E}^{n}\,_{A}}\,  {E}^{m}\,_{B} {w}_{m} {E}^{k}\,_{C} {w}_{n} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{n}{(-{E}^{k}\,_{A} {w}_{k})}\,  {E}^{m}\,_{B} {w}_{m} {E}^{n}\,_{C} {E}_{5}\,^{E} + \frac{1}{2}\, {E}^{m}\,_{C} {\partial}_{m}{{E}^{5}\,_{B}}\,  {\delta}_{A}\,^{E} - \frac{1}{2}\, {E}^{5}\,_{C} {\partial}_{m}{{E}^{m}\,_{B}}\,  {\delta}_{A}\,^{E} + \frac{1}{2}\, {E}^{n}\,_{C} {\partial}_{n}{(-{E}^{m}\,_{B} {w}_{m})}\,  {\delta}_{A}\,^{E} + \frac{1}{2}\, {E}^{m}\,_{C} {w}_{m} {\partial}_{n}{{E}^{n}\,_{B}}\,  {\delta}_{A}\,^{E} + \frac{1}{4}\, {E}^{m}\,_{B} {\partial}_{m}{{E}^{5}\,_{A}}\,  {\delta}_{C}\,^{E} - \frac{1}{4}\, {E}^{5}\,_{B} {\partial}_{m}{{E}^{m}\,_{A}}\,  {\delta}_{C}\,^{E} + \frac{1}{4}\, {E}^{n}\,_{B} {\partial}_{n}{(-{E}^{m}\,_{A} {w}_{m})}\,  {\delta}_{C}\,^{E}%
+ + \frac{1}{4}\, {E}^{m}\,_{B} {w}_{m} {\partial}_{n}{{E}^{n}\,_{A}}\,  {\delta}_{C}\,^{E} - \frac{1}{4}\, {E}^{m}\,_{A} {\partial}_{m}{{E}^{5}\,_{B}}\,  {\delta}_{C}\,^{E} + \frac{1}{4}\, {E}^{5}\,_{A} {\partial}_{m}{{E}^{m}\,_{B}}\,  {\delta}_{C}\,^{E} - \frac{1}{4}\, {E}^{n}\,_{A} {\partial}_{n}{(-{E}^{m}\,_{B} {w}_{m})}\,  {\delta}_{C}\,^{E} - \frac{1}{4}\, {E}^{m}\,_{A} {w}_{m} {\partial}_{n}{{E}^{n}\,_{B}}\,  {\delta}_{C}\,^{E} - \frac{1}{2}\, {E}^{m}\,_{C} {\partial}_{m}{{E}^{5}\,_{A}}\,  {\delta}_{B}\,^{E} + \frac{1}{2}\, {E}^{5}\,_{C} {\partial}_{m}{{E}^{m}\,_{A}}\,  {\delta}_{B}\,^{E} - \frac{1}{2}\, {E}^{n}\,_{C} {\partial}_{n}{(-{E}^{m}\,_{A} {w}_{m})}\,  {\delta}_{B}\,^{E} - \frac{1}{2}\, {E}^{m}\,_{C} {w}_{m} {\partial}_{n}{{E}^{n}\,_{A}}\,  {\delta}_{B}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{B}}\,  {E}^{m}\,_{A} {E}^{5}\,_{C} {E}_{n}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{B}}\,  {E}^{m}\,_{A} {E}^{5}\,_{C} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{n}{{E}^{m}\,_{B}}\,  {E}^{5}\,_{A} {E}^{n}\,_{C} {E}_{m}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{B}}\,  {E}^{5}\,_{A} {E}^{m}\,_{C} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{B}}\,  {E}^{m}\,_{A} {E}^{5}\,_{C} {w}_{n} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{n}{{E}^{m}\,_{B}}\,  {E}^{5}\,_{A} {E}^{n}\,_{C} {w}_{m} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{m}{(-{E}^{n}\,_{B} {w}_{n})}\,  {E}^{m}\,_{A} {E}^{5}\,_{C} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{(-{E}^{n}\,_{B} {w}_{n})}\,  {E}^{5}\,_{A} {E}^{m}\,_{C} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{B}}\,  {E}^{m}\,_{A} {E}^{k}\,_{C} {w}_{k} {E}_{n}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{5}\,_{B}}\,  {E}^{m}\,_{A} {E}^{n}\,_{C} {w}_{n} {E}_{5}\,^{E} - \frac{1}{2}\, {\partial}_{m}{{E}^{n}\,_{B}}\,  {E}^{m}\,_{A} {E}^{k}\,_{C} {w}_{k} {w}_{n} {E}_{5}\,^{E}%
+ - \frac{1}{2}\, {\partial}_{m}{(-{E}^{k}\,_{B} {w}_{k})}\,  {E}^{m}\,_{A} {E}^{n}\,_{C} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{k}{{E}^{n}\,_{B}}\,  {E}^{m}\,_{A} {w}_{m} {E}^{k}\,_{C} {E}_{n}\,^{E} + \frac{1}{2}\, {\partial}_{n}{{E}^{5}\,_{B}}\,  {E}^{m}\,_{A} {w}_{m} {E}^{n}\,_{C} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{k}{{E}^{n}\,_{B}}\,  {E}^{m}\,_{A} {w}_{m} {E}^{k}\,_{C} {w}_{n} {E}_{5}\,^{E} + \frac{1}{2}\, {\partial}_{n}{(-{E}^{k}\,_{B} {w}_{k})}\,  {E}^{m}\,_{A} {w}_{m} {E}^{n}\,_{C} {E}_{5}\,^{E};
+\end{dmath*}
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@eliminate\_kr: not applicable.
+% End TeX comment
+% orig
+% 1/2 E^{5}_{B} E_{5}^{E} E^{m}_{A} E^{n}_{C} \partial_{m}{w_{n}} - 1/2 E^{5}_{A} E_{5}^{E} E^{m}_{B} E^{n}_{C} \partial_{m}{w_{n}} + 1/2 E_{k}^{E} E^{m}_{A} E^{n}_{B} \partial_{m}{E^{k}_{C}} w_{n} + 1/2 E_{5}^{E} E^{m}_{A} E^{n}_{B} \partial_{m}{E^{5}_{C}} w_{n} - 1/2 E_{5}^{E} E^{k}_{A} E^{m}_{B} E^{n}_{C} \partial_{k}{w_{n}} w_{m} - 1/2 E_{k}^{E} E^{m}_{A} E^{n}_{B} \partial_{n}{E^{k}_{C}} w_{m} - 1/2 E_{5}^{E} E^{m}_{A} E^{n}_{B} \partial_{n}{E^{5}_{C}} w_{m} + 1/2 E_{5}^{E} E^{k}_{A} E^{m}_{B} E^{n}_{C} \partial_{m}{w_{n}} w_{k} + 1/2 E^{5}_{C} E_{5}^{E} E^{m}_{A} E^{n}_{B} \partial_{n}{w_{m}} - 1/2 E^{5}_{B} E_{5}^{E} E^{m}_{A} E^{n}_{C} \partial_{n}{w_{m}} + 1/2 E_{k}^{E} E^{m}_{B} E^{n}_{C} \partial_{m}{E^{k}_{A}} w_{n} + 1/2 E_{5}^{E} E^{m}_{B} E^{n}_{C} \partial_{m}{E^{5}_{A}} w_{n} - 1/2 E_{5}^{E} E^{k}_{A} E^{m}_{B} E^{n}_{C} \partial_{m}{w_{k}} w_{n} - 1/2 E_{k}^{E} E^{m}_{B} E^{n}_{C} \partial_{n}{E^{k}_{A}} w_{m} - 1/2 E_{5}^{E} E^{m}_{B} E^{n}_{C} \partial_{n}{E^{5}_{A}} w_{m} + 1/2 E_{5}^{E} E^{k}_{A} E^{m}_{B} E^{n}_{C} \partial_{n}{w_{k}} w_{m} - 1/2 E^{m}_{C} \delta_{A}^{E} \partial_{m}{E^{n}_{B}} w_{n} - 1/2 E^{m}_{B} E^{n}_{C} \delta_{A}^{E} \partial_{n}{w_{m}} + 1/2 E^{m}_{C} \delta_{A}^{E} \partial_{n}{E^{n}_{B}} w_{m} - 1/4 E^{m}_{B} \delta_{C}^{E} \partial_{m}{E^{n}_{A}} w_{n} - 1/4 E^{m}_{A} E^{n}_{B} \delta_{C}^{E} \partial_{n}{w_{m}} + 1/4 E^{m}_{B} \delta_{C}^{E} \partial_{n}{E^{n}_{A}} w_{m} + 1/4 E^{m}_{A} \delta_{C}^{E} \partial_{m}{E^{n}_{B}} w_{n} + 1/4 E^{m}_{A} E^{n}_{B} \delta_{C}^{E} \partial_{m}{w_{n}} - 1/4 E^{m}_{A} \delta_{C}^{E} \partial_{n}{E^{n}_{B}} w_{m} + 1/2 E^{m}_{C} \delta_{B}^{E} \partial_{m}{E^{n}_{A}} w_{n} + 1/2 E^{m}_{A} E^{n}_{C} \delta_{B}^{E} \partial_{n}{w_{m}} - 1/2 E^{m}_{C} \delta_{B}^{E} \partial_{n}{E^{n}_{A}} w_{m} - 1/2 E^{5}_{C} E_{5}^{E} E^{m}_{A} E^{n}_{B} \partial_{m}{w_{n}} + 1/2 E^{5}_{A} E_{5}^{E} E^{m}_{B} E^{n}_{C} \partial_{n}{w_{m}} - 1/2 E_{k}^{E} E^{m}_{A} E^{n}_{C} \partial_{m}{E^{k}_{B}} w_{n} - 1/2 E_{5}^{E} E^{m}_{A} E^{n}_{C} \partial_{m}{E^{5}_{B}} w_{n} + 1/2 E_{5}^{E} E^{k}_{A} E^{m}_{B} E^{n}_{C} \partial_{k}{w_{m}} w_{n} + 1/2 E_{k}^{E} E^{m}_{A} E^{n}_{C} \partial_{n}{E^{k}_{B}} w_{m} + 1/2 E_{5}^{E} E^{m}_{A} E^{n}_{C} \partial_{n}{E^{5}_{B}} w_{m} - 1/2 E_{5}^{E} E^{k}_{A} E^{m}_{B} E^{n}_{C} \partial_{n}{w_{m}} w_{k}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+F\specialcolon{}= \frac{1}{2}\, {E}^{5}\,_{B} {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{C} {\partial}_{m}{{w}_{n}}\,  - \frac{1}{2}\, {E}^{5}\,_{A} {E}_{5}\,^{E} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{m}{{w}_{n}}\,  + \frac{1}{2}\, {E}_{k}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{B} {\partial}_{m}{{E}^{k}\,_{C}}\,  {w}_{n} + \frac{1}{2}\, {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{B} {\partial}_{m}{{E}^{5}\,_{C}}\,  {w}_{n} - \frac{1}{2}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{k}{{w}_{n}}\,  {w}_{m} - \frac{1}{2}\, {E}_{k}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{B} {\partial}_{n}{{E}^{k}\,_{C}}\,  {w}_{m} - \frac{1}{2}\, {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{B} {\partial}_{n}{{E}^{5}\,_{C}}\,  {w}_{m} + \frac{1}{2}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{m}{{w}_{n}}\,  {w}_{k} + \frac{1}{2}\, {E}^{5}\,_{C} {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{B} {\partial}_{n}{{w}_{m}}\,  - \frac{1}{2}\, {E}^{5}\,_{B} {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{C} {\partial}_{n}{{w}_{m}}\,  + \frac{1}{2}\, {E}_{k}\,^{E} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{m}{{E}^{k}\,_{A}}\,  {w}_{n} + \frac{1}{2}\, {E}_{5}\,^{E} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{m}{{E}^{5}\,_{A}}\,  {w}_{n} - \frac{1}{2}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{m}{{w}_{k}}\,  {w}_{n} - \frac{1}{2}\, {E}_{k}\,^{E} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{n}{{E}^{k}\,_{A}}\,  {w}_{m} - \frac{1}{2}\, {E}_{5}\,^{E} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{n}{{E}^{5}\,_{A}}\,  {w}_{m} + \frac{1}{2}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{n}{{w}_{k}}\,  {w}_{m} - \frac{1}{2}\, {E}^{m}\,_{C} {\delta}_{A}\,^{E} {\partial}_{m}{{E}^{n}\,_{B}}\,  {w}_{n} - \frac{1}{2}\, {E}^{m}\,_{B} {E}^{n}\,_{C} {\delta}_{A}\,^{E} {\partial}_{n}{{w}_{m}}\,  + \frac{1}{2}\, {E}^{m}\,_{C} {\delta}_{A}\,^{E} {\partial}_{n}{{E}^{n}\,_{B}}\,  {w}_{m}%
+ - \frac{1}{4}\, {E}^{m}\,_{B} {\delta}_{C}\,^{E} {\partial}_{m}{{E}^{n}\,_{A}}\,  {w}_{n} - \frac{1}{4}\, {E}^{m}\,_{A} {E}^{n}\,_{B} {\delta}_{C}\,^{E} {\partial}_{n}{{w}_{m}}\,  + \frac{1}{4}\, {E}^{m}\,_{B} {\delta}_{C}\,^{E} {\partial}_{n}{{E}^{n}\,_{A}}\,  {w}_{m} + \frac{1}{4}\, {E}^{m}\,_{A} {\delta}_{C}\,^{E} {\partial}_{m}{{E}^{n}\,_{B}}\,  {w}_{n} + \frac{1}{4}\, {E}^{m}\,_{A} {E}^{n}\,_{B} {\delta}_{C}\,^{E} {\partial}_{m}{{w}_{n}}\,  - \frac{1}{4}\, {E}^{m}\,_{A} {\delta}_{C}\,^{E} {\partial}_{n}{{E}^{n}\,_{B}}\,  {w}_{m} + \frac{1}{2}\, {E}^{m}\,_{C} {\delta}_{B}\,^{E} {\partial}_{m}{{E}^{n}\,_{A}}\,  {w}_{n} + \frac{1}{2}\, {E}^{m}\,_{A} {E}^{n}\,_{C} {\delta}_{B}\,^{E} {\partial}_{n}{{w}_{m}}\,  - \frac{1}{2}\, {E}^{m}\,_{C} {\delta}_{B}\,^{E} {\partial}_{n}{{E}^{n}\,_{A}}\,  {w}_{m} - \frac{1}{2}\, {E}^{5}\,_{C} {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{B} {\partial}_{m}{{w}_{n}}\,  + \frac{1}{2}\, {E}^{5}\,_{A} {E}_{5}\,^{E} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{n}{{w}_{m}}\,  - \frac{1}{2}\, {E}_{k}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{C} {\partial}_{m}{{E}^{k}\,_{B}}\,  {w}_{n} - \frac{1}{2}\, {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{C} {\partial}_{m}{{E}^{5}\,_{B}}\,  {w}_{n} + \frac{1}{2}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{k}{{w}_{m}}\,  {w}_{n} + \frac{1}{2}\, {E}_{k}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{C} {\partial}_{n}{{E}^{k}\,_{B}}\,  {w}_{m} + \frac{1}{2}\, {E}_{5}\,^{E} {E}^{m}\,_{A} {E}^{n}\,_{C} {\partial}_{n}{{E}^{5}\,_{B}}\,  {w}_{m} - \frac{1}{2}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\partial}_{n}{{w}_{m}}\,  {w}_{k};
+\end{dmath*}
+{\color[named]{Blue}\begin{verbatim}
+@substitute!!(%)(
+w_{m} -> 1/6 * \epsilon_{m n k l} \Omega^{n k l},
+):
+@prodrule!!(%):
+@distribute!!(%):
+@substitute!!(%)(
+\partial_{A??}{\epsilon_{m n k l}} -> 0,
+\Omega^{m n k} -> \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{k},
+):
+@prodrule!!(%):
+@distribute!!(%):
+@prodsort!!(%):
+@substitute!!(%)(
+\partial_{A??}{\rho^{i1 i2 i3}} -> 0,
+):
+@prodrule!!(%):
+@distribute!!(%):
+@substitute!!(%)(
+\epsilon_{m n k l} \partial_{p}{E^{p}_{A}} -> \epsilon_{p n k l} \partial_{m}{E^{p}_{A}} + \epsilon_{m p k l} \partial_{n}{E^{p}_{A}}
+                                                                         + \epsilon_{m n p l} \partial_{k}{E^{p}_{A}} + \epsilon_{m n k p} \partial_{l}{E^{p}_{A}},
+):
+@prodrule!!(%):
+@distribute!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+zero := 1/12 E_{k}^{E} E^{l}_{A} E^{m}_{B} \epsilon_{m n p q} \partial_{l}{E^{k}_{C}} \rho^{i1 i2 i3} k_{i1}^{n} k_{i2}^{p} k_{i3}^{q} 
++ 1/12 E_{5}^{E} E^{q}_{A} E^{l}_{B} \epsilon_{l m n p} \partial_{q}{E^{5}_{C}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} 
++ 1/12 E_{k}^{E} E^{l}_{B} E^{m}_{C} \epsilon_{m n p q} \partial_{l}{E^{k}_{A}} \rho^{i1 i2 i3} k_{i1}^{n} k_{i2}^{p} k_{i3}^{q} 
++ 1/12 E_{5}^{E} E^{q}_{B} E^{l}_{C} \epsilon_{l m n p} \partial_{q}{E^{5}_{A}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} 
+- 1/12 E_{k}^{E} E^{l}_{A} E^{m}_{C} \epsilon_{m n p q} \partial_{l}{E^{k}_{B}} \rho^{i1 i2 i3} k_{i1}^{n} k_{i2}^{p} k_{i3}^{q} 
+- 1/12 E_{5}^{E} E^{q}_{A} E^{l}_{C} \epsilon_{l m n p} \partial_{q}{E^{5}_{B}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p}:
+@asym!(%){_{m}, _{n}, _{p}, _{q}, _{l}}:
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+defF := @(F) - 5 * @(zero):
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%);
+\end{verbatim}}
+% Begin TeX comment
+@prodrule: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodrule: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodsort: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodsort: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_terms: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodsort: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% orig
+% 1/4 E^{5}_{B} E_{5}^{E} E^{k}_{A} E^{l}_{C} \epsilon_{l m n p} \partial_{k}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} - 1/4 E^{5}_{A} E_{5}^{E} E^{k}_{B} E^{l}_{C} \epsilon_{l m n p} \partial_{k}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l n p q} \epsilon_{m r s t} \partial_{k}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{m r s t} \partial_{l}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} + 1/4 E^{5}_{C} E_{5}^{E} E^{k}_{A} E^{l}_{B} \epsilon_{k m n p} \partial_{l}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} - 1/4 E^{5}_{B} E_{5}^{E} E^{k}_{A} E^{l}_{C} \epsilon_{k m n p} \partial_{l}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{m r s t} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{l r s t} \partial_{m}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} - 1/4 E^{k}_{B} E^{l}_{C} \delta_{A}^{E} \epsilon_{k m n p} \partial_{l}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} + 1/4 E^{k}_{C} \delta_{A}^{E} \epsilon_{k l m n} \partial_{p}{E^{l}_{B}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} - 1/8 E^{k}_{A} E^{l}_{B} \delta_{C}^{E} \epsilon_{k m n p} \partial_{l}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} + 1/8 E^{k}_{B} \delta_{C}^{E} \epsilon_{k l m n} \partial_{p}{E^{l}_{A}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} + 1/8 E^{k}_{A} E^{l}_{B} \delta_{C}^{E} \epsilon_{l m n p} \partial_{k}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} - 1/8 E^{k}_{A} \delta_{C}^{E} \epsilon_{k l m n} \partial_{p}{E^{l}_{B}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} + 1/4 E^{k}_{A} E^{l}_{C} \delta_{B}^{E} \epsilon_{k m n p} \partial_{l}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} - 1/4 E^{k}_{C} \delta_{B}^{E} \epsilon_{k l m n} \partial_{p}{E^{l}_{A}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} - 1/4 E^{5}_{C} E_{5}^{E} E^{k}_{A} E^{l}_{B} \epsilon_{l m n p} \partial_{k}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} + 1/4 E^{5}_{A} E_{5}^{E} E^{k}_{B} E^{l}_{C} \epsilon_{k m n p} \partial_{l}{k_{i1}^{m}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l n p q} \epsilon_{m r s t} \partial_{k}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{l r s t} \partial_{m}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} - 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} \epsilon_{l m n p} \partial_{q}{E^{k}_{C}} \rho^{i1 i2 i3} k_{i1}^{n} k_{i2}^{p} k_{i3}^{q} - 1/4 E_{5}^{E} E^{k}_{A} E^{l}_{B} \epsilon_{k l m n} \partial_{p}{E^{5}_{C}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} - 1/4 E_{k}^{E} E^{l}_{B} E^{m}_{C} \epsilon_{l m n p} \partial_{q}{E^{k}_{A}} \rho^{i1 i2 i3} k_{i1}^{n} k_{i2}^{p} k_{i3}^{q} - 1/4 E_{5}^{E} E^{k}_{B} E^{l}_{C} \epsilon_{k l m n} \partial_{p}{E^{5}_{A}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p} + 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{C} \epsilon_{l m n p} \partial_{q}{E^{k}_{B}} \rho^{i1 i2 i3} k_{i1}^{n} k_{i2}^{p} k_{i3}^{q} + 1/4 E_{5}^{E} E^{k}_{A} E^{l}_{C} \epsilon_{k l m n} \partial_{p}{E^{5}_{B}} \rho^{i1 i2 i3} k_{i1}^{m} k_{i2}^{n} k_{i3}^{p}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+defF\specialcolon{}= \frac{1}{4}\, {E}^{5}\,_{B} {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{C} {\epsilon}_{l m n p} {\partial}_{k}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{4}\, {E}^{5}\,_{A} {E}_{5}\,^{E} {E}^{k}\,_{B} {E}^{l}\,_{C} {\epsilon}_{l m n p} {\partial}_{k}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\epsilon}_{m r s t} {\partial}_{k}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{m r s t} {\partial}_{l}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} + \frac{1}{4}\, {E}^{5}\,_{C} {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {\epsilon}_{k m n p} {\partial}_{l}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{4}\, {E}^{5}\,_{B} {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{C} {\epsilon}_{k m n p} {\partial}_{l}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{m r s t} {\partial}_{l}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{l r s t} {\partial}_{m}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} - \frac{1}{4}\, {E}^{k}\,_{B} {E}^{l}\,_{C} {\delta}_{A}\,^{E} {\epsilon}_{k m n p} {\partial}_{l}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{4}\, {E}^{k}\,_{C} {\delta}_{A}\,^{E} {\epsilon}_{k l m n} {\partial}_{p}{{E}^{l}\,_{B}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{m} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{8}\, {E}^{k}\,_{A} {E}^{l}\,_{B} {\delta}_{C}\,^{E} {\epsilon}_{k m n p} {\partial}_{l}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{8}\, {E}^{k}\,_{B} {\delta}_{C}\,^{E} {\epsilon}_{k l m n} {\partial}_{p}{{E}^{l}\,_{A}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{m} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{8}\, {E}^{k}\,_{A} {E}^{l}\,_{B} {\delta}_{C}\,^{E} {\epsilon}_{l m n p} {\partial}_{k}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{8}\, {E}^{k}\,_{A} {\delta}_{C}\,^{E} {\epsilon}_{k l m n} {\partial}_{p}{{E}^{l}\,_{B}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{m} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{4}\, {E}^{k}\,_{A} {E}^{l}\,_{C} {\delta}_{B}\,^{E} {\epsilon}_{k m n p} {\partial}_{l}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{4}\, {E}^{k}\,_{C} {\delta}_{B}\,^{E} {\epsilon}_{k l m n} {\partial}_{p}{{E}^{l}\,_{A}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{m} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{4}\, {E}^{5}\,_{C} {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {\epsilon}_{l m n p} {\partial}_{k}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{4}\, {E}^{5}\,_{A} {E}_{5}\,^{E} {E}^{k}\,_{B} {E}^{l}\,_{C} {\epsilon}_{k m n p} {\partial}_{l}{{k}_{i1}\,^{m}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\epsilon}_{m r s t} {\partial}_{k}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t}%
+ - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{l r s t} {\partial}_{m}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {\epsilon}_{l m n p} {\partial}_{q}{{E}^{k}\,_{C}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{n} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{4}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {\epsilon}_{k l m n} {\partial}_{p}{{E}^{5}\,_{C}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{m} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{E}^{k}\,_{A}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{n} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{4}\, {E}_{5}\,^{E} {E}^{k}\,_{B} {E}^{l}\,_{C} {\epsilon}_{k l m n} {\partial}_{p}{{E}^{5}\,_{A}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{m} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{E}^{k}\,_{B}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{n} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{4}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{C} {\epsilon}_{k l m n} {\partial}_{p}{{E}^{5}\,_{B}}\,  {\rho}^{i1 i2 i3} {k}_{i1}\,^{m} {k}_{i2}\,^{n} {k}_{i3}\,^{p};
+\end{dmath*}
+{\color[named]{Blue}\begin{verbatim}
+@substitute!!(%)(
+\partial_{n}{E^{m}_{A}} k_{i1}^{n} -> L_{i1}^{m}_{A} + E^{n}_{A}\partial_{n}{k_{i1}^{m}} - 1/2 * E^{m}_{A} \partial_{n}{k_{i1}^{n}},
+\partial_{n}{E^{5}_{A}} k_{i1}^{n} -> L_{i1}^{5}_{A} + 1/2 * E^{5}_{A} \partial_{n}{k_{i1}^{n}},
+L_{i1}^{m}_{A} -> 0,
+L_{i1}^{5}_{A} -> 0,
+E^{5}_{A} E_{5}^{B} -> \delta_{A}^{B} - E^{k}_{A} E_{k}^{B},
+):
+@distribute!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@prodsort!!(%):
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%);
+\end{verbatim}}
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodsort: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% orig
+%  - 1/4 E_{k}^{E} E^{l}_{A} E^{k}_{B} E^{m}_{C} \epsilon_{m n p q} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} + 1/4 E_{k}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{m n p q} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l n p q} \epsilon_{m r s t} \partial_{k}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{m r s t} \partial_{l}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} - 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{k}_{C} \epsilon_{l n p q} \partial_{m}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} + 1/4 E_{k}^{E} E^{l}_{A} E^{k}_{B} E^{m}_{C} \epsilon_{l n p q} \partial_{m}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{m r s t} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{l r s t} \partial_{m}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} + 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{k}_{C} \epsilon_{m n p q} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} - 1/4 E_{k}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l n p q} \partial_{m}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l n p q} \epsilon_{m r s t} \partial_{k}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{l r s t} \partial_{m}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} - 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{n}_{C} \epsilon_{l m p q} \partial_{n}{k_{i1}^{k}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} + 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{k}_{C} \epsilon_{l m n p} \partial_{q}{k_{i1}^{q}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} - 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{n}_{C} \epsilon_{m n p q} \partial_{l}{k_{i1}^{k}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} + 1/4 E_{k}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l m n p} \partial_{q}{k_{i1}^{q}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p} + 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{n}_{C} \epsilon_{l n p q} \partial_{m}{k_{i1}^{k}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} - 1/4 E_{k}^{E} E^{l}_{A} E^{k}_{B} E^{m}_{C} \epsilon_{l m n p} \partial_{q}{k_{i1}^{q}} \rho^{i1 i2 i3} k_{i2}^{n} k_{i3}^{p}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+defF\specialcolon{}=  - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{k}\,_{B} {E}^{m}\,_{C} {\epsilon}_{m n p q} {\partial}_{l}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{m n p q} {\partial}_{l}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\epsilon}_{m r s t} {\partial}_{k}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{m r s t} {\partial}_{l}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{k}\,_{C} {\epsilon}_{l n p q} {\partial}_{m}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{k}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\partial}_{m}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{m r s t} {\partial}_{l}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{l r s t} {\partial}_{m}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{k}\,_{C} {\epsilon}_{m n p q} {\partial}_{l}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\partial}_{m}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\epsilon}_{m r s t} {\partial}_{k}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{l r s t} {\partial}_{m}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\epsilon}_{l m p q} {\partial}_{n}{{k}_{i1}\,^{k}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{k}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{k}_{i1}\,^{q}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\epsilon}_{m n p q} {\partial}_{l}{{k}_{i1}\,^{k}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{k}_{i1}\,^{q}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\epsilon}_{l n p q} {\partial}_{m}{{k}_{i1}\,^{k}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{k}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{k}_{i1}\,^{q}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{n} {k}_{i3}\,^{p};
+\end{dmath*}
+{\color[named]{Blue}\begin{verbatim}
+zero1 := - 1/4 * E_{k}^{E} E^{l}_{A} E^{k}_{B} E^{m}_{C} \epsilon_{m n p q} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q}
++ 1/4 * E_{k}^{E} E^{l}_{B} E^{k}_{A} E^{m}_{C} \epsilon_{m n p q} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q}
+- 1/4 * E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{k}_{C} \epsilon_{m n p q} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q}
+- 1/2 * E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{k}_{C} \epsilon_{l n p q} \partial_{m}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q}
+- 1/4 * E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{n}_{C} \epsilon_{l m p q} \partial_{n}{k_{i1}^{k}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q}
+- 1/4 * E_{q}^{E} E^{l}_{A} E^{q}_{B} E^{m}_{C} J^{n p} \epsilon_{l m n p}:
+@asym!(%){_{m}, _{n}, _{p}, _{q}, _{l}}:
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+zero2 := + 3/2 e**(-2) E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i5}^{l} k_{i6}^{p} \partial_{m}{k_{i1}^{q}} h_{n q} k_{i2 l} k_{i3 p} k_{i4 k}:
+@asym!(%){_{m}, _{n}, _{l}, _{p}, _{k}}:
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+zero3 := + 3/2 e**(-2) E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i6}^{l} \partial_{l}{k_{i1}^{p}} k_{i2 m} k_{i3 n} k_{i4 k} k_{i5 p}:
+@asym!(%){_{i6}, _{i2}, _{i3}, _{i4}, _{i5}}:
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+deformedF := @(defF) - 5 * @(zero1) - 10 * @(zero2) - 5/3 * @(zero3):
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%);
+\end{verbatim}}
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% orig
+%  - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l n p q} \epsilon_{m r s t} \partial_{k}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{m r s t} \partial_{l}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{m r s t} \partial_{l}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{l r s t} \partial_{m}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} + 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l n p q} \epsilon_{m r s t} \partial_{k}{k_{i1}^{n}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{p} k_{i3}^{q} k_{i4}^{r} k_{i5}^{s} k_{i6}^{t} - 1/24 E_{5}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{k n p q} \epsilon_{l r s t} \partial_{m}{k_{i1}^{r}} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{s} k_{i3}^{t} k_{i4}^{n} k_{i5}^{p} k_{i6}^{q} + 1/2 E_{k}^{E} E^{l}_{A} E^{k}_{B} E^{m}_{C} \epsilon_{l m n p} \partial_{q}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} - 1/2 E_{k}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} \epsilon_{l m n p} \partial_{q}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} - 1/2 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{k}_{C} \epsilon_{l m n p} \partial_{q}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} + 1/2 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{n}_{C} \epsilon_{l m n p} \partial_{q}{k_{i1}^{k}} \rho^{i1 i2 i3} k_{i2}^{p} k_{i3}^{q} + 1/4 E_{k}^{E} E^{l}_{A} E^{k}_{B} E^{m}_{C} J^{n p} \epsilon_{l m n p} - 1/4 E_{k}^{E} E^{k}_{A} E^{l}_{B} E^{m}_{C} J^{n p} \epsilon_{l m n p} - 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{n}_{C} J^{p k} \epsilon_{l m n p} + 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{n}_{C} J^{k p} \epsilon_{l m n p} - 1/4 E_{k}^{E} E^{l}_{A} E^{m}_{B} E^{k}_{C} J^{n p} \epsilon_{l m n p} - 3/2 E_{5}^{E} E^{k l m}_{A B C} \partial_{k}{k_{i1}^{n}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} h_{l n} k_{i2 p} k_{i3 q} k_{i4 m} k_{i5}^{p} k_{i6}^{q} - 3 E_{5}^{E} E^{k l m}_{A B C} \partial_{k}{k_{i1}^{n}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} h_{l n} k_{i2 m} k_{i3 p} k_{i4 q} k_{i5}^{p} k_{i6}^{q} + 3 E_{5}^{E} E^{k l m}_{A B C} \partial_{k}{k_{i1}^{n}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} h_{n p} k_{i2 l} k_{i3 q} k_{i4 m} k_{i5}^{p} k_{i6}^{q} - 3/2 E_{5}^{E} E^{k l m}_{A B C} \partial_{k}{k_{i1}^{n}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} h_{n p} k_{i2 l} k_{i3 m} k_{i4 q} k_{i5}^{p} k_{i6}^{q} - 3 E_{5}^{E} E^{k l m}_{A B C} \partial_{n}{k_{i1}^{p}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} h_{k p} k_{i2 l} k_{i3 q} k_{i4 m} k_{i5}^{n} k_{i6}^{q} + 3/2 E_{5}^{E} E^{k l m}_{A B C} \partial_{n}{k_{i1}^{p}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} h_{k p} k_{i2 l} k_{i3 m} k_{i4 q} k_{i5}^{n} k_{i6}^{q} - 3/2 E_{5}^{E} E^{k l m}_{A B C} \partial_{n}{k_{i1}^{p}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} h_{p q} k_{i2 k} k_{i3 l} k_{i4 m} k_{i5}^{n} k_{i6}^{q} - 3/4 E_{5}^{E} E^{k l m}_{A B C} \partial_{n}{k_{i1}^{p}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2 k} k_{i3 l} k_{i4 m} k_{i5 p} k_{i6}^{n} - 3/4 E_{5}^{E} E^{k l m}_{A B C} \partial_{n}{k_{i1}^{p}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2 k} k_{i3 p} k_{i4 l} k_{i5 m} k_{i6}^{n} + 3/4 E_{5}^{E} E^{k l m}_{A B C} \partial_{n}{k_{i1}^{p}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2 k} k_{i4 l} k_{i5 m} k_{i6 p} k_{i3}^{n} - 1/4 E_{5}^{E} E^{k l m}_{A B C} \partial_{n}{k_{i1}^{p}} e**{(-2)} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2 p} k_{i4 k} k_{i5 l} k_{i6 m} k_{i3}^{n}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+deformedF\specialcolon{}=  - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\epsilon}_{m r s t} {\partial}_{k}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{m r s t} {\partial}_{l}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{m r s t} {\partial}_{l}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{l r s t} {\partial}_{m}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} + \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l n p q} {\epsilon}_{m r s t} {\partial}_{k}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{p} {k}_{i3}\,^{q} {k}_{i4}\,^{r} {k}_{i5}\,^{s} {k}_{i6}\,^{t} - \frac{1}{24}\, {E}_{5}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{k n p q} {\epsilon}_{l r s t} {\partial}_{m}{{k}_{i1}\,^{r}}\,  {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{s} {k}_{i3}\,^{t} {k}_{i4}\,^{n} {k}_{i5}\,^{p} {k}_{i6}\,^{q} + \frac{1}{2}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{k}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{2}\, {E}_{k}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} - \frac{1}{2}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{k}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{k}_{i1}\,^{n}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{2}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {\epsilon}_{l m n p} {\partial}_{q}{{k}_{i1}\,^{k}}\,  {\rho}^{i1 i2 i3} {k}_{i2}\,^{p} {k}_{i3}\,^{q} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{k}\,_{B} {E}^{m}\,_{C} {J}^{n p} {\epsilon}_{l m n p} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{k}\,_{A} {E}^{l}\,_{B} {E}^{m}\,_{C} {J}^{n p} {\epsilon}_{l m n p} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {J}^{p k} {\epsilon}_{l m n p} + \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{n}\,_{C} {J}^{k p} {\epsilon}_{l m n p} - \frac{1}{4}\, {E}_{k}\,^{E} {E}^{l}\,_{A} {E}^{m}\,_{B} {E}^{k}\,_{C} {J}^{n p} {\epsilon}_{l m n p} - \frac{3}{2}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{k}{{k}_{i1}\,^{n}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {h}_{l n} {k}_{i2 p} {k}_{i3 q} {k}_{i4 m} {k}_{i5}\,^{p} {k}_{i6}\,^{q} - 3\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{k}{{k}_{i1}\,^{n}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {h}_{l n} {k}_{i2 m} {k}_{i3 p} {k}_{i4 q} {k}_{i5}\,^{p} {k}_{i6}\,^{q} + 3\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{k}{{k}_{i1}\,^{n}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {h}_{n p} {k}_{i2 l} {k}_{i3 q} {k}_{i4 m} {k}_{i5}\,^{p} {k}_{i6}\,^{q} - \frac{3}{2}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{k}{{k}_{i1}\,^{n}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {h}_{n p} {k}_{i2 l} {k}_{i3 m} {k}_{i4 q} {k}_{i5}\,^{p} {k}_{i6}\,^{q}%
+ - 3\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{n}{{k}_{i1}\,^{p}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {h}_{k p} {k}_{i2 l} {k}_{i3 q} {k}_{i4 m} {k}_{i5}\,^{n} {k}_{i6}\,^{q} + \frac{3}{2}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{n}{{k}_{i1}\,^{p}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {h}_{k p} {k}_{i2 l} {k}_{i3 m} {k}_{i4 q} {k}_{i5}\,^{n} {k}_{i6}\,^{q} - \frac{3}{2}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{n}{{k}_{i1}\,^{p}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {h}_{p q} {k}_{i2 k} {k}_{i3 l} {k}_{i4 m} {k}_{i5}\,^{n} {k}_{i6}\,^{q} - \frac{3}{4}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{n}{{k}_{i1}\,^{p}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2 k} {k}_{i3 l} {k}_{i4 m} {k}_{i5 p} {k}_{i6}\,^{n} - \frac{3}{4}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{n}{{k}_{i1}\,^{p}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2 k} {k}_{i3 p} {k}_{i4 l} {k}_{i5 m} {k}_{i6}\,^{n} + \frac{3}{4}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{n}{{k}_{i1}\,^{p}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2 k} {k}_{i4 l} {k}_{i5 m} {k}_{i6 p} {k}_{i3}\,^{n} - \frac{1}{4}\, {E}_{5}\,^{E} {E}^{k l m}\,_{A B C} {\partial}_{n}{{k}_{i1}\,^{p}}\,  e{}^{(-2)} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2 p} {k}_{i4 k} {k}_{i5 l} {k}_{i6 m} {k}_{i3}\,^{n};
+\end{dmath*}
+{\color[named]{Blue}\begin{verbatim}
+@substitute!!(%)(
+\partial_{q}{k_{i1}^{n}} \rho^{i1 i2 i3} k_{i3}^{q} -> 1/2 * \rho^{i3 i1 i2} f_{i3 i1}^{i4} k_{i4}^{n},
+):
+@distribute!!(%):
+@substitute!!(%)(
+ \rho^{i1 i2 i3} f_{i1 i2}^{i4} k_{i3}^{m} k_{i4}^{n} -> J^{m n},
+E_{5}^{E} E^{m}_{A} E^{n}_{B} E^{k}_{C} -> E_{5}^{E} E^{m n k}_{A B C},
+):
+# we can do this as quadratic term is asym in [m n k]
+@distribute!!(%):
+@substitute!!(%)(
+\epsilon_{m1 m2 m3 m4} \epsilon_{n1 n2 n3 n4} -> 24 * e**(-2) h_{m1 k1} h_{m2 k2} h_{m3 k3} h_{m4 k4} \delta_{n1}^{k1}_{n2}^{k2}_{n3}^{k3}_{n4}^{k4},
+):
+#e - is determinant of 4d vielbein
+@distribute!!(%):
+@breakgendelta!!(%):
+@distribute!!(%):
+@eliminate_kr!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@prodsort!!(%):
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+@factor_out!(%){E_{5}^{A}, E^{m}_{B}, E^{m n k}_{A B C}, \rho^{i1 i2 i3}, k_{i1}^{m}, e**(-2)}:
+@rename_dummies!(%):
+@distribute!!(%):
+@factor_out!(%){E_{5}^{A}, E^{m}_{B}, E^{m n k}_{A B C}, \rho^{i1 i2 i3}, k_{i1}^{m}, e**(-2)}:
+@canonicalise!!(%);
+\end{verbatim}}
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodsort: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% orig
+% 1/4 E^{m}_{A} E^{n}_{B} E^{k}_{C} E_{l}^{E} J^{l p} \epsilon_{k m n p} + E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i6}^{l} e**{(-2)} ( - 3/4 \partial_{l}{k_{i1}^{p}} k_{i2 m} k_{i3 n} k_{i4 k} k_{i5 p} - 3/4 \partial_{l}{k_{i1}^{p}} k_{i2 m} k_{i3 p} k_{i4 n} k_{i5 k}) + E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i7}^{l} e**{(-2)} (3/8 f_{i1 i2}^{i7} k_{i3 m} k_{i4 n} k_{i5 k} k_{i6 l} - 1/8 f_{i1 i2}^{i7} k_{i3 l} k_{i4 m} k_{i5 n} k_{i6 k}) + E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i5}^{l} k_{i6}^{p} e**{(-2)} ( - 3 \partial_{l}{k_{i1}^{q}} h_{m q} k_{i2 n} k_{i3 p} k_{i4 k} + 3/2 \partial_{l}{k_{i1}^{q}} h_{m q} k_{i2 n} k_{i3 k} k_{i4 p} - 3/2 \partial_{l}{k_{i1}^{q}} h_{p q} k_{i2 m} k_{i3 n} k_{i4 k} - 3/2 \partial_{m}{k_{i1}^{q}} h_{n q} k_{i2 l} k_{i3 p} k_{i4 k} - 3 \partial_{m}{k_{i1}^{q}} h_{n q} k_{i2 k} k_{i3 l} k_{i4 p} + 3 \partial_{m}{k_{i1}^{q}} h_{l q} k_{i2 n} k_{i3 p} k_{i4 k} - 3/2 \partial_{m}{k_{i1}^{q}} h_{l q} k_{i2 n} k_{i3 k} k_{i4 p}) + E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i2}^{l} k_{i3}^{p} k_{i4}^{q} k_{i5}^{r} k_{i6}^{s} e**{(-2)} ( - 3 \partial_{m}{k_{i1}^{t}} h_{k q} h_{l n} h_{p s} h_{r t} + 3/2 \partial_{m}{k_{i1}^{t}} h_{k q} h_{l r} h_{n t} h_{p s})
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+deformedF\specialcolon{}= \frac{1}{4}\, {E}^{m}\,_{A} {E}^{n}\,_{B} {E}^{k}\,_{C} {E}_{l}\,^{E} {J}^{l p} {\epsilon}_{k m n p} + {E}_{5}\,^{E} {E}^{m n k}\,_{A B C} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i6}\,^{l} e{}^{(-2)} ( - \frac{3}{4}\, {\partial}_{l}{{k}_{i1}\,^{p}}\,  {k}_{i2 m} {k}_{i3 n} {k}_{i4 k} {k}_{i5 p} - \frac{3}{4}\, {\partial}_{l}{{k}_{i1}\,^{p}}\,  {k}_{i2 m} {k}_{i3 p} {k}_{i4 n} {k}_{i5 k}) + {E}_{5}\,^{E} {E}^{m n k}\,_{A B C} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i7}\,^{l} e{}^{(-2)} (\frac{3}{8}\, {f}_{i1 i2}\,^{i7} {k}_{i3 m} {k}_{i4 n} {k}_{i5 k} {k}_{i6 l} - \frac{1}{8}\, {f}_{i1 i2}\,^{i7} {k}_{i3 l} {k}_{i4 m} {k}_{i5 n} {k}_{i6 k}) + {E}_{5}\,^{E} {E}^{m n k}\,_{A B C} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i5}\,^{l} {k}_{i6}\,^{p} e{}^{(-2)} ( - 3\, {\partial}_{l}{{k}_{i1}\,^{q}}\,  {h}_{m q} {k}_{i2 n} {k}_{i3 p} {k}_{i4 k} + \frac{3}{2}\, {\partial}_{l}{{k}_{i1}\,^{q}}\,  {h}_{m q} {k}_{i2 n} {k}_{i3 k} {k}_{i4 p} - \frac{3}{2}\, {\partial}_{l}{{k}_{i1}\,^{q}}\,  {h}_{p q} {k}_{i2 m} {k}_{i3 n} {k}_{i4 k} - \frac{3}{2}\, {\partial}_{m}{{k}_{i1}\,^{q}}\,  {h}_{n q} {k}_{i2 l} {k}_{i3 p} {k}_{i4 k} - 3\, {\partial}_{m}{{k}_{i1}\,^{q}}\,  {h}_{n q} {k}_{i2 k} {k}_{i3 l} {k}_{i4 p} + 3\, {\partial}_{m}{{k}_{i1}\,^{q}}\,  {h}_{l q} {k}_{i2 n} {k}_{i3 p} {k}_{i4 k} - \frac{3}{2}\, {\partial}_{m}{{k}_{i1}\,^{q}}\,  {h}_{l q} {k}_{i2 n} {k}_{i3 k} {k}_{i4 p}) + {E}_{5}\,^{E} {E}^{m n k}\,_{A B C} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i2}\,^{l} {k}_{i3}\,^{p} {k}_{i4}\,^{q} {k}_{i5}\,^{r} {k}_{i6}\,^{s} e{}^{(-2)} ( - 3\, {\partial}_{m}{{k}_{i1}\,^{t}}\,  {h}_{k q} {h}_{l n} {h}_{p s} {h}_{r t} + \frac{3}{2}\, {\partial}_{m}{{k}_{i1}\,^{t}}\,  {h}_{k q} {h}_{l r} {h}_{n t} {h}_{p s});
+\end{dmath*}
+% Begin TeX cell closed
+$- \frac{1}{24}\, {\epsilon}_{k l p q} {\epsilon}_{n r s t} {\partial}_{m}{{k}_{i1}\,^{l}}\,  
++ \frac{1}{24}\, {\epsilon}_{k l p q} {\epsilon}_{m r s t} {\partial}_{n}{{k}_{i1}\,^{l}}\,  
+- \frac{1}{24}\, {\epsilon}_{m l p q} {\epsilon}_{k r s t} {\partial}_{n}{{k}_{i1}\,^{l}}\,  $\\
+$+ \frac{1}{24}\, {\epsilon}_{m l p q} {\epsilon}_{n r s t} {\partial}_{k}{{k}_{i1}\,^{l}}\, 
++ \frac{1}{24}\, {\epsilon}_{n l p q} {\epsilon}_{k r s t} {\partial}_{m}{{k}_{i1}\,^{l}}\,  
+- \frac{1}{24}\, {\epsilon}_{n l p q} {\epsilon}_{m r s t} {\partial}_{k}{{k}_{i1}\,^{l}}\, $
+% End TeX cell
+{\color[named]{Blue}\begin{verbatim}
+@distribute!!(%):
+@substitute!!(%)(
+k_{i1}^{m} h_{m n} ->  k_{i1 n},
+k_{i1}^{m} h_{n m} ->  k_{i1 n},
+\rho^{i1 i2 i3} k_{i3}^{m} k_{i1 m} -> 0,
+\rho^{i1 i2 i3} k_{i3}^{m} k_{i2 m} -> 0,
+):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@prodsort!!(%):
+@distribute!!(%):
+@prodsort!!(%):
+@rename_dummies!(%):
+@canonicalise!!(%):
+@collect_factors!!(%):
+@collect_terms!!(%):
+@factor_out!(%){E_{5}^{A}, E^{m}_{B}, E^{m n k}_{A B C}, \rho^{i1 i2 i3}, k_{i1}^{m}, e**(-2)}:
+@rename_dummies!(%):
+@distribute!!(%):
+@factor_out!(%){E_{5}^{A}, E^{m}_{B}, E^{m n k}_{A B C}, \rho^{i1 i2 i3}, k_{i1}^{m}, e**(-2)}:
+@canonicalise!!(%);
+\end{verbatim}}
+% Begin TeX comment
+@distribute: not applicable.
+% End TeX comment
+% Begin TeX comment
+@prodsort: not applicable.
+% End TeX comment
+% Begin TeX comment
+@collect\_factors: not applicable.
+% End TeX comment
+% Begin TeX comment
+@canonicalise: not applicable.
+% End TeX comment
+% orig
+% 1/4 E^{m}_{C} E^{n}_{A} E^{k}_{B} E_{l}^{E} J^{l p} \epsilon_{k m n p} + E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i6}^{l} e**{(-2)} (3/4 \partial_{l}{k_{i1}^{p}} k_{i2 m} k_{i3 n} k_{i4 k} k_{i5 p} - 3/4 \partial_{l}{k_{i1}^{p}} k_{i2 m} k_{i3 p} k_{i4 n} k_{i5 k}) + E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i7}^{l} e**{(-2)} (3/8 f_{i1 i2}^{i7} k_{i3 m} k_{i4 n} k_{i5 k} k_{i6 l} - 1/8 f_{i1 i2}^{i7} k_{i3 l} k_{i4 m} k_{i5 n} k_{i6 k}) - 3 E_{5}^{E} E^{m n k}_{A B C} \rho^{i1 i2 i3} \rho^{i4 i5 i6} k_{i5}^{l} k_{i6}^{p} e**{(-2)} \partial_{l}{k_{i1}^{q}} h_{m q} k_{i2 n} k_{i3 p} k_{i4 k}
+% end_orig
+\begin{dmath*}[compact, spread=2pt]
+deformedF\specialcolon{}= \frac{1}{4}\, {E}^{m}\,_{C} {E}^{n}\,_{A} {E}^{k}\,_{B} {E}_{l}\,^{E} {J}^{l p} {\epsilon}_{k m n p} + {E}_{5}\,^{E} {E}^{m n k}\,_{A B C} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i6}\,^{l} e{}^{(-2)} (\frac{3}{4}\, {\partial}_{l}{{k}_{i1}\,^{p}}\,  {k}_{i2 m} {k}_{i3 n} {k}_{i4 k} {k}_{i5 p} - \frac{3}{4}\, {\partial}_{l}{{k}_{i1}\,^{p}}\,  {k}_{i2 m} {k}_{i3 p} {k}_{i4 n} {k}_{i5 k}) + {E}_{5}\,^{E} {E}^{m n k}\,_{A B C} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i7}\,^{l} e{}^{(-2)} (\frac{3}{8}\, {f}_{i1 i2}\,^{i7} {k}_{i3 m} {k}_{i4 n} {k}_{i5 k} {k}_{i6 l} - \frac{1}{8}\, {f}_{i1 i2}\,^{i7} {k}_{i3 l} {k}_{i4 m} {k}_{i5 n} {k}_{i6 k}) - 3\, {E}_{5}\,^{E} {E}^{m n k}\,_{A B C} {\rho}^{i1 i2 i3} {\rho}^{i4 i5 i6} {k}_{i5}\,^{l} {k}_{i6}\,^{p} e{}^{(-2)} {\partial}_{l}{{k}_{i1}\,^{q}}\,  {h}_{m q} {k}_{i2 n} {k}_{i3 p} {k}_{i4 k};
+\end{dmath*}
+\end{document}
